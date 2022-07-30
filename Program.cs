@@ -1,22 +1,29 @@
-﻿string[] mainArray = new string[5] {"123", "1567", "-2", "c", "City"};
+﻿string[] mainArray = new string[6] { "1203", "5067", "-20", "000c", "City", "it" };
 int lettersNumbers = 3; // Количество символов элемента по условию переноса в новый массив
 
 Console.Clear();
-Console.WriteLine("********************************************************");
+Console.WriteLine("***************************************************************");
 Console.WriteLine("Дан следующий масcив строк:");
 
 Console.Write(PrintArray(mainArray));
 Console.WriteLine();
 
-Console.WriteLine("********************************************************");
-Console.WriteLine("Удалим элементы с числом символов больше или равно 3:");
+Console.WriteLine("***************************************************************");
+Console.WriteLine($"Оставим элементы с количеством симоволов меньше или равно {lettersNumbers}...");
 
 string[] cleanedArray = new string[CheckLettersCount(mainArray, lettersNumbers)];
-CleanFromLetters(mainArray, cleanedArray, lettersNumbers);
-Console.Write(PrintArray(cleanedArray));
-Console.WriteLine();
 
-Console.WriteLine("********************************************************");
+// Проверка длины нового массива для более понятного вывода пользователю
+if (cleanedArray.Length != 0)
+{
+    Console.WriteLine("Новый массив:");
+    CleanFromLetters(mainArray, cleanedArray, lettersNumbers);
+    Console.Write(PrintArray(cleanedArray));
+    Console.WriteLine();
+}
+else Console.WriteLine("В массиве не осталось элементов удовлетворяющих условию");
+
+Console.WriteLine("***************************************************************");
 
 // Описание методов программы
 
